@@ -12,3 +12,4 @@ CUDA_VISBLE_DEVICES=9 python main.py --env-name reacher-goal-sparse-v1 --fast-ba
 
 CUDA_VISBLE_DEVICES=1 python main.py --env-name HopperRandParamsEnv-v1 --fast-batch-size 20 --meta-batch-size 40 --output-folder hcv-33 --num-workers 16 --embed-size 32  --exp-lr 7e-4 --baseline-type nn --nonlinearity tanh --num-layers-pre 1 --hidden-size 64 --seed 3 --M-type returns --exp-eps 1 --gpu 1
 
+CUDA_VISBLE_DEVICES=1 python main.py --env-name metaworld-5 --fast-batch-size 20 --meta-batch-size 40 --output-folder hcv-33 --num-workers 16 --embed-size 32  --exp-lr 7e-4 --baseline-type nn --nonlinearity tanh --num-layers-pre 1 --hidden-size 64 --seed 3 --M-type returns --exp-eps 3 --gpu 1

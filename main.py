@@ -98,7 +98,8 @@ def main(args):
         '2DNavigation-v0', '2DPointEnvCorner-v0', '2DPointEnvCorner-v1', '2DPointEnvCustom-v1',
         'AntRandDirecEnv-v1', 'AntRandDirec2DEnv-v1', 'AntRandGoalEnv-v1', 'HalfCheetahRandDirecEnv-v1',
         'HalfCheetahRandVelEnv-v1', 'HumanoidRandDirecEnv-v1', 'HumanoidRandDirec2DEnv-v1', 
-        'Walker2DRandDirecEnv-v1', 'Walker2DRandVelEnv-v1', 'HopperRandParamsEnv-v1', 'Walker2DRandParamsEnv-v1'])
+        'Walker2DRandDirecEnv-v1', 'Walker2DRandVelEnv-v1', 'HopperRandParamsEnv-v1', 'Walker2DRandParamsEnv-v1'
+                                            , 'metaworld5-v1', 'metaworld16-v1'])
     continuous_actions =1
 
     np.random.seed(args.seed)
@@ -266,6 +267,7 @@ def main(args):
     best_reward_after = -40000
     rewards = []
     steps = []
+    successss = []
     for batch in range(start_batch+1,args.num_batches):
         tasks = sampler.sample_tasks(num_tasks=args.meta_batch_size)
         episodes = metalearner.sample(tasks, first_order=args.first_order)
@@ -282,6 +284,8 @@ def main(args):
 
         before_update_reward = total_rewards([ep.rewards for ep, _ in episodes])
         after_update_reward = total_rewards([ep.rewards for _, ep in episodes])
+        successes = [ep.infos[-1,:,:] for _, ep in episodes]
+        #print(successes[0])
         end = datetime.datetime.now()
 
         print('Batch {:d}/{:d}, Num_steps {:d}'.format(batch+1, args.num_batches, int(sampler.total_steps)))
@@ -307,14 +311,17 @@ def main(args):
             writer.add_scalar('Num_steps', sampler.total_steps, batch)
             rewards.append(after_update_reward)
             steps.append(sampler.total_steps)
+            successss.append(np.mean(np.array(successes)))
 
             # Save policy network
             if batch%50==0 or after_update_reward > best_reward_after:
                 r1 = np.array(rewards)
                 s1 = np.array(steps)
+                ss1 = np.array(successss)
                 np.save(save_folder+'/reward.npy',r1)
                 np.save(save_folder + '/step.npy', s1)
-                with open(os.path.join(save_folder, 'policy-{0}.pt'.format(batch)), 'wb') as f:
+                np.save(save_folder + '/success.npy', ss1)
+                '''with open(os.path.join(save_folder, 'policy-{0}.pt'.format(batch)), 'wb') as f:
                     torch.save(policy.state_dict(), f)
                 with open(os.path.join(save_folder, 'policy-{0}-exp.pt'.format(batch)), 'wb') as f:
                     torch.save(exp_policy.state_dict(), f)
@@ -329,7 +336,7 @@ def main(args):
                     with open(os.path.join(save_folder, 'value_net-{0}.pt'.format(batch)), 'wb') as f:
                         torch.save(exp_baseline.state_dict(), f)
                     with open(os.path.join(save_folder, 'value_net_targ-{0}.pt'.format(batch)), 'wb') as f:
-                        torch.save(exp_baseline_targ.state_dict(), f)
+                        torch.save(exp_baseline_targ.state_dict(), f)'''
                 best_reward_after = after_update_reward
                 # Plotting figure
                 if args.env_name in ['2DNavigation-v0', '2DPointEnvCorner-v0', '2DPointEnvCorner-v1', '2DPointEnvCustom-v1'] and 1:

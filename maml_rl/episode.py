@@ -14,6 +14,7 @@ class BatchEpisodes(object):
         self._actions_list = [[] for _ in range(batch_size)]
         self._action_probs_list = [[] for _ in range(batch_size)]
         self._rewards_list = [[] for _ in range(batch_size)]
+        self._infos_list = [[] for _ in range(batch_size)]
         self._mask_list = []
 
         self._observations = None
@@ -22,6 +23,7 @@ class BatchEpisodes(object):
         self._action_probs = None
         self._rewards = None
         self._returns = None
+        self._infos = None
         self._mask = None
         self._task = task
         if corners is not None:
@@ -42,6 +44,18 @@ class BatchEpisodes(object):
                 observations[:length, i] = np.stack(self._observations_list[i], axis=0)
             self._observations = torch.from_numpy(observations).to(self.device)
         return self._observations
+
+    @property
+    def infos(self):
+        if self._infos is None:
+
+            infos = np.zeros((len(self), self.batch_size)
+                                    + (1,), dtype=np.float32)
+            for i in range(self.batch_size):
+                length = len(self._infos_list[i])
+                infos[:length, i] = np.expand_dims(np.stack(self._infos_list[i], axis=0),1)
+            self._infos = infos
+        return self._infos
 
     @property
     def observations_next(self):
@@ -147,9 +161,9 @@ class BatchEpisodes(object):
 
         return advantages
 
-    def append(self, observations, actions, rewards, batch_ids, action_probs, observations_next, dones):
-        for observation, action, reward, batch_id, action_prob, observation_next, done in zip(
-                observations, actions, rewards, batch_ids, action_probs, observations_next, dones):
+    def append(self, observations, actions, rewards, batch_ids, action_probs, observations_next, dones, infos):
+        for observation, action, reward, batch_id, action_prob, observation_next, done, info in zip(
+                observations, actions, rewards, batch_ids, action_probs, observations_next, dones, infos):
             if batch_id is None:
                 continue
 
@@ -158,6 +172,7 @@ class BatchEpisodes(object):
             self._rewards_list[batch_id].append(reward.astype(np.float32))
             self._action_probs_list[batch_id].append(action_prob.astype(np.float32))
             self._observations_next_list[batch_id].append(observation_next.astype(np.float32))
+            self._infos_list[batch_id].append(info['success'])
 
     def __len__(self):
         return max(map(len, self._rewards_list))

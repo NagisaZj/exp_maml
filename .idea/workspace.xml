@@ -1,85 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad2193ce-9a6c-4567-afa8-838f073c6c31" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/ant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/ant_dir.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/ant_goal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/ant_multitask_base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/half_cheetah.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/half_cheetah_vel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/reacher_goal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/walker_rand_params_wrapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/walker_vel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/wrappers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/core/eval_util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/core/logger.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/core/rl_algorithm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/core/serializable.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/core/tabulate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/core/util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/data_management/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/data_management/env_replay_buffer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/data_management/normalizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/data_management/path_builder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/data_management/proportional.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/data_management/replay_buffer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/data_management/simple_replay_buffer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/data_management/sum_tree.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/ant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/ant_dir.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/ant_goal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/ant_multitask_base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/assets/ant.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/assets/low_gear_ratio_ant.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/door_open.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/half_cheetah.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/half_cheetah_dir.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/half_cheetah_vel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/hopper_rand_params_wrapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/hopper_vel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/humanoid_dir.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/mujoco_env.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/point_robot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/reacher_goal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/tiny_games.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/walker_rand_params_wrapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/walker_vel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/envs/wrappers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/launchers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/launchers/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/launchers/launcher_util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/policies/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/policies/argmax.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/policies/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/policies/simple.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/samplers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/samplers/in_place.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/samplers/util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/torch/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/torch/core.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/torch/data_management/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/torch/data_management/normalizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/torch/distributions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/torch/modules.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/torch/networks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/torch/pytorch_util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/torch/sac/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/torch/sac/agent.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/torch/sac/policies.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rlkit/torch/sac/sac.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arguments.py" beforeDir="false" afterPath="$PROJECT_DIR$/arguments.py" afterDir="false" />
+    <list default="true" id="eb0dcd1d-be54-4027-b495-0abcb0e06bf3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/experiments_log.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/experiments_log.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maml_rl/envs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/maml_rl/envs/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/ant_rand_goal.py" beforeDir="false" afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/ant_rand_goal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/half_cheetah_rand_vel.py" beforeDir="false" afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/half_cheetah_rand_vel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/swimmer_rand_vel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/walker2d_rand_vel.py" beforeDir="false" afterPath="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/walker2d_rand_vel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maml_rl/envs/point_envs/point_env_2d_custom.py" beforeDir="false" afterPath="$PROJECT_DIR$/maml_rl/envs/point_envs/point_env_2d_custom.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maml_rl/episode.py" beforeDir="false" afterPath="$PROJECT_DIR$/maml_rl/episode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maml_rl/sampler.py" beforeDir="false" afterPath="$PROJECT_DIR$/maml_rl/sampler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot.sh" beforeDir="false" afterPath="$PROJECT_DIR$/plot.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,22 +15,35 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plot.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="387">
+              <caret line="14" column="293" selection-start-line="14" selection-start-column="293" selection-end-line="14" selection-end-column="293" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/maml_rl/envs/subproc_vec_env.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="402">
+              <caret line="95" column="53" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+            <state relative-caret-position="165">
+              <caret line="286" column="34" selection-start-line="286" selection-start-column="34" selection-end-line="286" selection-end-column="34" />
               <folding>
+                <element signature="e#0#18#0" expanded="true" />
                 <element signature="e#1094#4213#0" />
               </folding>
             </state>
@@ -111,19 +51,43 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/maml_rl/envs/mujoco_envs/walker_rand_params_wrapper.py">
+        <entry file="file://$PROJECT_DIR$/maml_rl/metalearner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+            <state relative-caret-position="372">
+              <caret line="221" column="45" selection-start-line="221" selection-start-column="45" selection-end-line="221" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/arguments.py">
+        <entry file="file://$PROJECT_DIR$/maml_rl/sampler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1804">
-              <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
+            <state relative-caret-position="203">
+              <caret line="85" column="29" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/maml_rl/episode.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/anaconda3/envs/MAML/lib/python3.6/site-packages/gym/envs/registration.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2717">
+              <caret line="181" column="4" selection-start-line="181" selection-start-column="4" selection-end-line="181" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,65 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/maml_rl/envs/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
+            <state relative-caret-position="285">
               <caret line="158" column="29" selection-start-line="158" selection-start-column="29" selection-end-line="158" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rand_param_envs/walker2d_rand_params.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="25" column="35" selection-start-line="9" selection-start-column="4" selection-end-line="25" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rand_param_envs/hopper_rand_params.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="25" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/maml_rl/envs/mujoco_envs/hopper_rand_params_wrapper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="32" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/maml_rl/envs/mujoco_envs/walker_vel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2684">
-              <caret line="122" column="16" selection-start-line="115" selection-start-column="4" selection-end-line="122" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/maml_rl/envs/mujoco_envs/half_cheetah_vel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2486">
-              <caret line="113" column="4" selection-start-line="113" selection-start-column="4" selection-end-line="120" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -211,10 +118,13 @@
       <find>env_name</find>
       <find>m_type</find>
       <find>num_batches</find>
-      <find>steps</find>
       <find>output_shape_reward_net</find>
       <find>M_type</find>
       <find>env</find>
+      <find>steps</find>
+      <find>rewards</find>
+      <find>best_reward_after</find>
+      <find>EnvWorker</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -231,22 +141,14 @@
         <option value="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/walker2d_rand_vel.py" />
         <option value="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/reacher_goal.py" />
         <option value="$PROJECT_DIR$/arguments.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/rand_param_envs/walker2d_rand_params.py" />
         <option value="$PROJECT_DIR$/maml_rl/envs/mujoco_envs/walker_rand_params_wrapper.py" />
         <option value="$PROJECT_DIR$/rand_param_envs/hopper_rand_params.py" />
         <option value="$PROJECT_DIR$/maml_rl/envs/__init__.py" />
         <option value="$PROJECT_DIR$/plot.sh" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/exp_maml.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/maml_rl/sampler.py" />
+        <option value="$PROJECT_DIR$/maml_rl/episode.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -272,13 +174,31 @@
             <path>
               <item name="exp_maml" type="b2602c69:ProjectViewProjectNode" />
               <item name="exp_maml" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exp_maml" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exp_maml" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+              <item name="metaworld-5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exp_maml" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exp_maml" type="462c0819:PsiDirectoryNode" />
               <item name="saves" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="exp_maml" type="b2602c69:ProjectViewProjectNode" />
               <item name="exp_maml" type="462c0819:PsiDirectoryNode" />
               <item name="saves" type="462c0819:PsiDirectoryNode" />
-              <item name="HopperRandParamsEnv-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="metaworld-5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exp_maml" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exp_maml" type="462c0819:PsiDirectoryNode" />
+              <item name="saves" type="462c0819:PsiDirectoryNode" />
+              <item name="metaworld-5" type="462c0819:PsiDirectoryNode" />
+              <item name="hcv-33" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -287,6 +207,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -323,8 +244,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="24" width="1922" height="1033" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24986821" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24960506" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -335,9 +257,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4997471" visible="true" weight="0.45856354" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4997471" visible="true" weight="0.34875846" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5002529" side_tool="true" weight="0.4497561" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3297561" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3295711" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -353,22 +275,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.conda/envs/MAML/lib/python3.6/site-packages/gym/envs/registration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="165" column="4" selection-start-line="165" selection-start-column="4" selection-end-line="165" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/maml_rl/envs/subproc_vec_env.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/MAML/lib/python3.6/site-packages/gym/envs/registration.py" />
     <entry file="file://$PROJECT_DIR$/saves/2DPointEnvCustom-v1/hcv-1/plot-3-0.png" />
     <entry file="file://$PROJECT_DIR$/saves/2DPointEnvCustom-v1/hcv-1/plot-1-0.png" />
     <entry file="file://$PROJECT_DIR$/saves/2DPointEnvCustom-v1/hcv-1/plot-2-0.png" />
@@ -473,13 +380,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/maml_rl/metalearner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2926">
-          <caret line="143" column="27" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/maml_rl/envs/mujoco_envs/reacher_goal.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -555,26 +455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/maml_rl/sampler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-          <folding>
-            <element signature="e#1094#4213#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/maml_rl/envs/mujoco_envs/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-67">
@@ -619,17 +499,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rlkit/envs/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-67">
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/MAML/lib/python3.6/site-packages/gym/envs/registration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2717">
+          <caret line="181" column="4" selection-start-line="181" selection-start-column="4" selection-end-line="181" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/maml_rl/envs/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
+        <state relative-caret-position="285">
           <caret line="158" column="29" selection-start-line="158" selection-start-column="29" selection-end-line="158" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plot.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="387">
+          <caret line="14" column="293" selection-start-line="14" selection-start-column="293" selection-end-line="14" selection-end-column="293" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maml_rl/metalearner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="221" column="45" selection-start-line="221" selection-start-column="45" selection-end-line="221" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maml_rl/envs/subproc_vec_env.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="95" column="53" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maml_rl/sampler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="85" column="29" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maml_rl/episode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="286" column="34" selection-start-line="286" selection-start-column="34" selection-end-line="286" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#1094#4213#0" />
+          </folding>
         </state>
       </provider>
     </entry>
