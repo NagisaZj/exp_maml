@@ -58,6 +58,14 @@ register(
     max_episode_steps=200
 )
 
+register(
+    'ant-goal-sparse-v0',
+    entry_point='maml_rl.envs.utils:mujoco_wrapper',
+    kwargs={'entry_point': 'maml_rl.envs.mujoco_envs.ant_goal:AntGoalEnvSparse'},
+    max_episode_steps=64
+)
+
+
 # 2D Navigation
 # ----------------------------------------
 
@@ -83,7 +91,7 @@ register(
 register(
     '2DPointEnvCustom-v1',
     entry_point='maml_rl.envs.point_envs.point_env_2d_custom:MetaPointEnvCustom',
-    max_episode_steps=100
+    max_episode_steps=32
 )
 
 # Mujoco Envs
@@ -103,7 +111,7 @@ register(
     'AntRandGoalEnv-v1',
     entry_point='maml_rl.envs.utils:mujoco_wrapper',
     kwargs={'entry_point': 'maml_rl.envs.mujoco_envs.ant_rand_goal:AntRandGoalEnv', 'promp_env': True},
-    max_episode_steps=200)
+    max_episode_steps=64)
 
 
 register(
@@ -146,9 +154,14 @@ register(
     'Walker2DRandParamsEnv-v1',
     entry_point='maml_rl.envs.utils:mujoco_wrapper',
     kwargs={'entry_point': 'rand_param_envs.walker2d_rand_params:Walker2DRandParamsEnv', 'promp_env': True},
-    max_episode_steps=200)
+    max_episode_steps=64)
 register(
     'HopperRandParamsEnv-v1',
     entry_point='maml_rl.envs.utils:mujoco_wrapper',
     kwargs={'entry_point': 'rand_param_envs.hopper_rand_params:HopperRandParamsEnv', 'promp_env': True},
-    max_episode_steps=200)
+    max_episode_steps=64)
+register(
+    'reacher-goal-sparse-v1',
+    entry_point='maml_rl.envs.utils:mujoco_wrapper',
+    kwargs={'entry_point': 'maml_rl.envs.mujoco_envs.reacher_goal:ReacherGoalEnv_sparse', 'promp_env': True},
+    max_episode_steps=32)

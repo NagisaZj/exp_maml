@@ -6,6 +6,7 @@ from gym.envs.mujoco.mujoco_env import MujocoEnv
 
 class HalfCheetahRandVelEnv(MetaEnv, MujocoEnv, gym.utils.EzPickle):
     def __init__(self):
+        self.goal_radius = 0.5
         self.set_task(self.sample_tasks(1)[0])
         MujocoEnv.__init__(self, 'half_cheetah.xml', 5)
         gym.utils.EzPickle.__init__(self)
@@ -27,6 +28,15 @@ class HalfCheetahRandVelEnv(MetaEnv, MujocoEnv, gym.utils.EzPickle):
         """
         return self.goal_velocity
 
+    def sparsify_rewards(self, r):
+        ''' zero out rewards when outside the goal radius '''
+        #mask = (r >= -self.goal_radius).astype(np.float32)
+        #r = r * mask
+        if r < - self.goal_radius:
+            r = -2
+        r = r + 2
+        return r
+
     def step(self, action):
         xposbefore = self.sim.data.qpos[0]
         self.do_simulation(action, self.frame_skip)
@@ -35,6 +45,7 @@ class HalfCheetahRandVelEnv(MetaEnv, MujocoEnv, gym.utils.EzPickle):
         reward_ctrl = - 0.5 * 0.1 * np.square(action).sum()
         forward_vel = (xposafter - xposbefore) / self.dt
         reward_run = - np.abs(forward_vel - self.goal_velocity)
+        reward_run = self.sparsify_rewards(reward_run)
         reward = reward_ctrl + reward_run
         done = False
         return ob, reward, done, dict(forward_vel=forward_vel, reward_run=reward_run, reward_ctrl=reward_ctrl)

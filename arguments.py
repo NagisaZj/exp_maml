@@ -8,6 +8,8 @@ def get_args():
     # General
     parser.add_argument('--env-name', type=str,
         help='name of the environment')
+    parser.add_argument('--gpu', type=str,
+                        help='name of the environment')
     parser.add_argument('--gamma', type=float, default=0.99,
         help='value of the discount factor gamma')
     parser.add_argument('--tau', type=float, default=1.0,

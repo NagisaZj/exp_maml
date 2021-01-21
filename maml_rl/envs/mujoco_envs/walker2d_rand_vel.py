@@ -27,6 +27,15 @@ class Walker2DRandVelEnv(MetaEnv, gym.utils.EzPickle, MujocoEnv):
         """
         return self.goal_velocity
 
+    def sparsify_rewards(self, r):
+        ''' zero out rewards when outside the goal radius '''
+        #mask = (r >= -self.goal_radius).astype(np.float32)
+        #r = r * mask
+        if r < - 0.5:
+            r = -2
+        r = r + 2
+        return r
+
     def step(self, a):
         posbefore = self.sim.data.qpos[0]
         self.do_simulation(a, self.frame_skip)
@@ -34,6 +43,7 @@ class Walker2DRandVelEnv(MetaEnv, gym.utils.EzPickle, MujocoEnv):
         alive_bonus = 15.0
         forward_vel = (posafter - posbefore) / self.dt
         reward = - np.abs(forward_vel - self.goal_velocity)
+        reward = self.sparsify_rewards(reward)
         reward += alive_bonus
         reward -= 1e-3 * np.square(a).sum()
         done = not (height > 0.8 and height < 2.0 and

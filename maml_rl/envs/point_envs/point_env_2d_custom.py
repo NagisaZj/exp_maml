@@ -10,15 +10,16 @@ class MetaPointEnvCustom(gym.Env):
     (one of the 4 points (-2,-2), (-2, 2), (2, -2), (2,2)) which are sampled with equal probability
     """
 
-    def __init__(self, reward_type='sparse', sparse_reward_radius=2, task = {}, points = None):
+    def __init__(self, reward_type='sparse', sparse_reward_radius=0.3, task = {}, points = None):
         super(MetaPointEnvCustom,self).__init__()
 
         assert reward_type in ['dense', 'dense_squared', 'sparse']
         self.reward_type = reward_type
         print("Point Env reward type is", reward_type)
         self.sparse_reward_radius = sparse_reward_radius
+        np.random.seed(1337)
         if points is None:
-            radius = 3
+            radius = 1
             center = [0,0]
             num_points = 100
             theta = np.random.uniform(high=np.pi, size=num_points)
@@ -46,7 +47,7 @@ class MetaPointEnvCustom(gym.Env):
             info : a dictionary containing other diagnostic information from the previous action
         """
         prev_state = self._state
-        self._state = prev_state + np.clip(action, -0.2, 0.2)
+        self._state = prev_state + np.clip(action, -0.1, 0.1)
         # self._state = np.clip(self._state,-4,4)
         reward = self.reward(prev_state, action, self._state)
         done = False # self.done(self._state)

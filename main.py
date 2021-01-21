@@ -9,6 +9,17 @@ import shutil
 import datetime
 import ipdb
 
+from maml_rl.envs.mujoco_envs import ENVS
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+#%matplotlib inline
+import csv
+import pickle
+import os
+import colour
+import torch
+
 from maml_rl.metalearner import MetaLearner
 from maml_rl.policies import CategoricalMLPPolicy, NormalMLPPolicy, RewardNetMLP, ValueNetMLP, RewardNetMLP_shared
 from maml_rl.baseline import LinearFeatureBaseline
@@ -27,13 +38,19 @@ def total_rewards(episodes_rewards, aggregation=torch.mean):
 
 
 def plotting(episodes, batch, save_folder, n, n_exp):
+
+    cmap = matplotlib.cm.get_cmap('plasma')
+    sample_locs = np.linspace(0, 0.9, 4)
+    colors = [cmap(s) for s in sample_locs]
     for i in range(n):
+        plt.figure()
+        plt.axis([-1.55, 1.55, -0.55, 1.55])
         train_ep = [episodes[i][0]]
         val_ep = episodes[i][1]
         task = episodes[i][0].task
         val_obs = val_ep.observations[:,0].cpu().numpy()
         # corners = np.array([np.array([-2,-2]), np.array([2,-2]), np.array([-2,2]), np.array([2, 2])])
-        radius = 3
+        radius = 1
         center = [0,0]
         num_points = 100
         theta = np.random.uniform(high=np.pi, size=num_points)
@@ -44,13 +61,32 @@ def plotting(episodes, batch, save_folder, n, n_exp):
                 train_obs = train_ep[j].observations[:,k].cpu().numpy()
                 # train_obs = np.maximum(train_obs, -4)
                 # train_obs = np.minimum(train_obs, 4)
-                plt.plot(train_obs[:,0], train_obs[:,1], label='exploring agent'+str(j)+str(k))
+                plt.plot(train_obs[:32,0], train_obs[:32,1], '-',color=colors[k],linewidth=3)
+                plt.plot(train_obs[31, 0], train_obs[31, 1],  '-x', markersize=10, color=colors[k],linewidth=3)
+                #axes[i, j].plot(states[-1, 0], states[-1, 1], '-x', markersize=10, color=colors[counter])
         # val_obs = np.maximum(val_obs, -4)
         # val_obs = np.minimum(val_obs, 4)
-        plt.plot(val_obs[:,0], val_obs[:,1], label='trained agent')
-        plt.legend()
-        plt.scatter(corners[:,0], corners[:,1], s=10, color='g')
-        plt.scatter(task[None,0], task[None,1], s=10, color='r')
+        plt.plot(val_obs[:32,0], val_obs[:32,1], '-',color=colors[-1],linewidth=3)
+        #plt.legend()
+        #plt.scatter(corners[:,0], corners[:,1], s=10, color='g')
+        #plt.scatter(task[None,0], task[None,1], s=10, color='r')
+        corners=corners[-20:,:]
+        corners = [[-0.5000000000000002, 0.8660254037844385], [0.766044443118978, 0.6427876096865393],
+                 [-0.9396926207859083, 0.3420201433256689], [0.654860733945285, 0.7557495743542583],
+                 [0.9994965423831851, 0.03172793349806765], [0.7237340381050701, 0.690079011482112],
+                 [-1.0, 1.2246467991473532e-16], [-0.14231483827328523, 0.9898214418809327],
+                 [0.9819286972627067, 0.18925124436041021], [0.9594929736144974, 0.28173255684142967],
+                 [-0.654860733945285, 0.7557495743542583], [-0.8888354486549234, 0.4582265217274105],
+                 [-0.8579834132349771, 0.5136773915734063], [-0.9594929736144974, 0.28173255684142967],
+                 [-0.9954719225730846, 0.09505604330418244], [-0.9500711177409454, 0.31203344569848696],
+                 [0.32706796331742155, 0.9450008187146685], [-0.975429786885407, 0.2203105327865408],
+                 [-0.3568862215918718, 0.9341478602651068], [0.7452644496757548, 0.6667690005162916]]
+        for k, g in enumerate(corners):
+            alpha = 1 if k == 2 else 0.2
+            circle = plt.Circle((g[0], g[1]), radius=0.3, alpha=alpha)
+            #plt.add_artist(circle)
+            plt.gca().add_patch(circle)
+            #axes[i, j].add_artist(circle)
         plt.savefig(os.path.join(save_folder,'plot-{0}-{1}.png'.format(batch,i)))
         plt.clf()
     return None
@@ -63,6 +99,7 @@ def main(args):
         'AntRandDirecEnv-v1', 'AntRandDirec2DEnv-v1', 'AntRandGoalEnv-v1', 'HalfCheetahRandDirecEnv-v1',
         'HalfCheetahRandVelEnv-v1', 'HumanoidRandDirecEnv-v1', 'HumanoidRandDirec2DEnv-v1', 
         'Walker2DRandDirecEnv-v1', 'Walker2DRandVelEnv-v1', 'HopperRandParamsEnv-v1', 'Walker2DRandParamsEnv-v1'])
+    continuous_actions =1
 
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
@@ -227,6 +264,8 @@ def main(args):
                               moving_params_normalize=moving_params_normalize, M_type=args.M_type)
     
     best_reward_after = -40000
+    rewards = []
+    steps = []
     for batch in range(start_batch+1,args.num_batches):
         tasks = sampler.sample_tasks(num_tasks=args.meta_batch_size)
         episodes = metalearner.sample(tasks, first_order=args.first_order)
@@ -234,7 +273,7 @@ def main(args):
             save_folder = './saves/'+ load_folder + args.output_folder
             if not os.path.exists(save_folder):
                 os.makedirs(save_folder)
-            plotting(episodes, batch, save_folder, args.num_plots, args.n_exp)
+            plotting(episodes, batch, save_folder, args.num_plots, 3)
             sys.exit(0)
         r_loss, pg_loss, grad_vals = metalearner.step(episodes)#, max_kl=args.max_kl, cg_iters=args.cg_iters,
             # cg_damping=args.cg_damping, ls_max_steps=args.ls_max_steps,
@@ -266,9 +305,15 @@ def main(args):
             writer.add_scalar('grad_vals/reward_net_outer', grad_vals[4], batch)
             writer.add_scalar('grad_vals/kl_grads', grad_vals[5], batch)
             writer.add_scalar('Num_steps', sampler.total_steps, batch)
+            rewards.append(after_update_reward)
+            steps.append(sampler.total_steps)
 
             # Save policy network
-            if batch%args.save_every==0 or after_update_reward > best_reward_after:
+            if batch%50==0 or after_update_reward > best_reward_after:
+                r1 = np.array(rewards)
+                s1 = np.array(steps)
+                np.save(save_folder+'/reward.npy',r1)
+                np.save(save_folder + '/step.npy', s1)
                 with open(os.path.join(save_folder, 'policy-{0}.pt'.format(batch)), 'wb') as f:
                     torch.save(policy.state_dict(), f)
                 with open(os.path.join(save_folder, 'policy-{0}-exp.pt'.format(batch)), 'wb') as f:
@@ -287,8 +332,8 @@ def main(args):
                         torch.save(exp_baseline_targ.state_dict(), f)
                 best_reward_after = after_update_reward
                 # Plotting figure
-                if args.env_name in ['2DNavigation-v0', '2DPointEnvCorner-v0', '2DPointEnvCorner-v1', '2DPointEnvCustom-v1'] and not args.dontplot:
-                    plotting(episodes, batch, save_folder, args.num_plots, args.n_exp)
+                if args.env_name in ['2DNavigation-v0', '2DPointEnvCorner-v0', '2DPointEnvCorner-v1', '2DPointEnvCustom-v1'] and 1:
+                    plotting(episodes, batch, save_folder, 3, 3)
 
 
 if __name__ == '__main__':
@@ -301,7 +346,7 @@ if __name__ == '__main__':
         os.makedirs(args.savedir)
 
     # Device
-    args.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    args.device = torch.device('cuda:'+args.gpu if torch.cuda.is_available() else 'cpu')
     
     # Slurm
     if 'SLURM_JOB_ID' in os.environ:
